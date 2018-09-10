@@ -18,27 +18,31 @@ ARTÍCULOS ADMINISTRABLE
 
 <div id="seccionArticulos" class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
 	
-	<button class="btn btn-info btn-lg">Agregar Artículo</button>
+	<button id="btnAgregarArticulo" class="btn btn-info btn-lg">Agregar Artículo</button>
 
 	<!--==== AGREGAR ARTÍCULO  ====-->
 
-	<div id="agregarArtículo">
+	<div id="agregarArticulo" style="display:none">
+
+		<form method="post" enctype="multipart/form-data">
 		
 		<input type="text" placeholder="Título del Artículo" class="form-control">
 
-		<textarea name="" id="" cols="30" rows="5" placeholder="Introducción del Articulo" class="form-control"></textarea>
+		<textarea name="" id="" cols="30" rows="5" placeholder="Introducción del Articulo" class="form-control" maxlegth="169"></textarea>
 
 		<input type="file" name="imagen" class="btn btn-default" id="subirFoto" required>
 
 		<p>Tamaño recomendado: 800px * 400px, peso máximo 2MB</p>
 
 		<div id="arrastreImagenArticulo">	
-			<div id="imagenArticulo"><img src="views/images/articulos/landscape01.jpg" class="img-thumbnail"></div>
+			<!-- <div id="imagenArticulo"><img src="views/images/articulos/landscape01.jpg" class="img-thumbnail"></div> -->
 		</div>
 
 		<textarea name="" id="" cols="30" rows="10" placeholder="Contenido del Articulo" class="form-control"></textarea>
 
-		<button id="guardarArticulo" class="btn btn-primary">Guardar Artículo</button>
+		<input type="submit" id="guardarArticulo" value="Guardar Artículo" class="btn btn-primary">
+
+		</form>
 
 	</div>
 
@@ -48,7 +52,7 @@ ARTÍCULOS ADMINISTRABLE
 
 	<ul id="editarArticulo">
 
-		<li>
+		<!--<li>
 			<span>
 			<i class="fa fa-times btn btn-danger"></i>
 			<i class="fa fa-pencil btn btn-primary"></i>	
@@ -79,7 +83,7 @@ ARTÍCULOS ADMINISTRABLE
 			
 			<hr>
 
-		</li>
+		</li>-->
 
 	</ul>
 
@@ -93,7 +97,7 @@ ARTÍCULOS ADMINISTRABLE
 ARTÍCULO MODAL         
 ======================================-->
 
-<div id="articulo1" class="modal fade">
+<!--<div id="articulo1" class="modal fade">
 
 		<div class="modal-dialog modal-content">
 
