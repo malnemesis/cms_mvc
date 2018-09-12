@@ -7,7 +7,6 @@ $("#btnAgregarArticulo").click(function(){
 
 })
 
-var imagen="";
 
 /*=============================================
 Subir imagen a tráves del Input
@@ -30,19 +29,19 @@ $("#subirFoto").change(function(){
 
      }
 
-     //Validar tipo de la imagen
+	// Validar tipo de la imagen
 
-     imagenType = imagen.type;
-     console.log('imagenType' , imagenType);
+	imagenType = imagen.type;
 
-     if (imagenType == "image/jpeg" || imageType == "image/png") {
-         
-        $(".alerta").remove();
+	if(imagenType == "image/jpeg" || imagenType == "image/png"){
 
-     }else{
+		$(".alerta").remove();
+	}
 
-        $("#arrastreImagenArticulo").before('<div class="alert alert-warning alerta text-center">El archivo debe ser formato JPG o PNG</div>')
+	else{
 
-     }
+		$("#arrastreImagenArticulo").before('<div class="alert alert-warning alerta text-center">El archivo debe ser formato JPG o PNG</div>')
+
+	}
 
 })

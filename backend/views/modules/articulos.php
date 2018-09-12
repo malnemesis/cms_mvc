@@ -35,7 +35,7 @@ ARTÍCULOS ADMINISTRABLE
 		<p>Tamaño recomendado: 800px * 400px, peso máximo 2MB</p>
 
 		<div id="arrastreImagenArticulo">	
-			<!-- <div id="imagenArticulo"><img src="views/images/articulos/landscape01.jpg" class="img-thumbnail"></div> -->
+			
 		</div>
 
 		<textarea name="" id="" cols="30" rows="10" placeholder="Contenido del Articulo" class="form-control"></textarea>
