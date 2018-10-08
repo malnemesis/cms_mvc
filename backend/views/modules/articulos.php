@@ -3,7 +3,9 @@
 session_start();
 
 if(!$_SESSION["validar"]){
+
 	header("location:ingreso");
+
 	exit();
 
 }
@@ -22,29 +24,36 @@ ARTÍCULOS ADMINISTRABLE
 
 	<!--==== AGREGAR ARTÍCULO  ====-->
 
-	<div id="agregarArticulo" style="display:none">
-
-		<form method="post" enctype="multipart/form-data">
+	<div id="agregarArtículo" style="display:none">
 		
-		<input type="text" placeholder="Título del Artículo" class="form-control">
+		<form method="post" enctype="multipart/form-data">
 
-		<textarea name="" id="" cols="30" rows="5" placeholder="Introducción del Articulo" class="form-control" maxlegth="169"></textarea>
+			<input name="tituloArticulo" type="text" placeholder="Título del Artículo" class="form-control" required>
 
-		<input type="file" name="imagen" class="btn btn-default" id="subirFoto" required>
+			<textarea name="introArticulo" id="" cols="30" rows="5" placeholder="Introducción del Articulo" class="form-control"  maxlength="170" required></textarea>
 
-		<p>Tamaño recomendado: 800px * 400px, peso máximo 2MB</p>
+			<input type="file" name="imagen" class="btn btn-default" id="subirFoto" required>
 
-		<div id="arrastreImagenArticulo">	
-			
-		</div>
+			<p>Tamaño recomendado: 800px * 400px, peso máximo 2MB</p>
 
-		<textarea name="" id="" cols="30" rows="10" placeholder="Contenido del Articulo" class="form-control"></textarea>
+			<div id="arrastreImagenArticulo">	
+				
+			</div>
 
-		<input type="submit" id="guardarArticulo" value="Guardar Artículo" class="btn btn-primary">
+			<textarea name="contenidoArticulo" id="" cols="30" rows="10" placeholder="Contenido del Articulo" class="form-control" required></textarea>
+
+			<input type="submit" id="guardarArticulo" value="Guardar Artículo" class="btn btn-primary">
 
 		</form>
 
 	</div>
+
+	<?php
+
+		$crearArticulo = new GestorArticulos();
+		$crearArticulo -> guardarArticuloController();
+
+	?>
 
 	<hr>
 
@@ -52,77 +61,22 @@ ARTÍCULOS ADMINISTRABLE
 
 	<ul id="editarArticulo">
 
-		<!--<li>
-			<span>
-			<i class="fa fa-times btn btn-danger"></i>
-			<i class="fa fa-pencil btn btn-primary"></i>	
-			</span>
-			<img src="views/images/articulos/landscape02.jpg" class="img-thumbnail">
-			<h1>Lorem Ipsum</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-			<a href="#articulo1" data-toggle="modal">
-			<button class="btn btn-default">Leer Más</button>
-			</a>
+	<?php
 
-			<hr>
+		$mostrarArticulo = new GestorArticulos();
+		$mostrarArticulo -> mostrarArticulosController();
+		$mostrarArticulo -> borrarArticuloController();
+		$mostrarArticulo -> editarArticuloController();
 
-		</li>
-
-		<li>
-			<span>
-			<button class="btn btn-primary pull-right">Guardar</button>	
-			</span>
-
-			<div id="editarImagen"><span class="fa fa-times"></span><img src="views/images/articulos/landscape03.jpg" class="img-thumbnail"></div>
-
-			<input type="text" value="Lorem Ipsum">
-			
-			<textarea cols="30" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
-
-			<textarea name="" id="editarContenido" cols="30" rows="10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
-			
-			<hr>
-
-		</li>-->
+	?>
 
 	</ul>
 
-	<button class="btn btn-warning pull-right" style="margin:10px 30px">Ordenar Artículos</button>
+	<button id="ordenarArticulos" class="btn btn-warning pull-right" style="margin:10px 30px">Ordenar Artículos</button>
+
+	<button id="guardarOrdenArticulos" class="btn btn-primary pull-right" style="display:none; margin:10px 30px">Guardar Orden Artículos</button>
 
 </div>
 
 <!--====  Fin de ARTÍCULOS ADMINISTRABLE  ====-->
 
-<!--=====================================
-ARTÍCULO MODAL         
-======================================-->
-
-<!--<div id="articulo1" class="modal fade">
-
-		<div class="modal-dialog modal-content">
-
-		 <div class="modal-header" style="border:1px solid #eee">
-        
-		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		 <h3 class="modal-title">Lorem Ipsum</h3>
-        
-	</div>
-
-	<div class="modal-body" style="border:1px solid #eee">
-        
-	<img src="views/images/articulos/landscape02.jpg" width="100%" style="margin-bottom:20px">
-	<p class="parrafoContenido">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        
-	</div>
-
-	<div class="modal-footer" style="border:1px solid #eee">
-        
-	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        
-	</div>
-
-		</div>
-
-</div>
-
-<!--====  Fin de ARTICULO MODAL ====-->
