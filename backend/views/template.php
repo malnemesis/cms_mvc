@@ -57,7 +57,9 @@
 	<script src="views/js/script.js"></script>
 	<script src="views/js/validarIngreso.js"></script>
 	<script src="views/js/gestorSlide.js"></script>
-	<script src="views/js/gestorArticulos.js"></script>
+	<script src="views/js/gestorArticulos.js">
+	</script>ç<script src="views/js/gestorGaleria.js"></script>
+	
 </body>
 
 </html>
