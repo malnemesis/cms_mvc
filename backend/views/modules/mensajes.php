@@ -45,8 +45,13 @@ MENSAJES
 
 	 <div id="visorMensajes">
 
+		 <?php
 
+			$responderMensajes = new MensajesController();
+			$responderMensajes -> responderMensajesController();
+			$responderMensajes -> mensajesMasivosController();
 
+		?>
 
 	 </div>
 

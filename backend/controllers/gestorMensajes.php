@@ -76,7 +76,7 @@ class MensajesController{
 			$mensaje =$_POST['enviarMensaje'];
 
 			$para = $email . ', ';
-			$para .= 'cursos@tutorialesatualcance.com';
+			$para .= 'mallopez@hotmail.com';
 
 			$título = 'Respuesta a su mensaje';
 
@@ -89,13 +89,13 @@ class MensajesController{
 								<h1>Hola '.$nombre.'</h1>
 								<p>'.$mensaje.'</p>
 								<hr>
-								<p><b>Juan Fernando Urrego A.</b><br>
-								Instructor Tutoriales a tu Alcance<br> 
-								Medellín - Antioquia</br> 
+								<p><b>Mario Alberto López</b><br>
+								MLSolutions<br> 
+								Flavio Alfaro - Manabí</br> 
 								WhatsApp: +57 301 391 74 61</br> 
-								cursos@tutorialesatualcance.com</p>
+								mlsolution.com</p>
 
-								<h3><a href="http://www.tutorialesatualcance.com" target="blank">www.tutorialesatualcance.com</a></h3>
+								<h3><a href="https://www.mlsolutions.com" target="blank">www.mlsolutions.com</a></h3>
 
 								<a href="http://www.facebook.com" target="blank"><img src="https://s23.postimg.org/cb2i89a23/facebook.jpg"></a> 
 								<a href="http://www.youtube.com" target="blank"><img src="https://s23.postimg.org/mcbxvbciz/youtube.jpg"></a> 
