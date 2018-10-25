@@ -227,7 +227,7 @@ class MensajesController{
 
 		foreach ($respuesta as $row => $item) {
 			
-			if ($item["revision"] == 0 ) {
+			if ($item["revision"] == 0) {
 				
 				++$sumaRevision;
 
