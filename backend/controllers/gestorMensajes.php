@@ -76,7 +76,7 @@ class MensajesController{
 			$mensaje =$_POST['enviarMensaje'];
 
 			$para = $email . ', ';
-			$para .= 'mallopez@hotmail.com';
+			$para .= 'soporte@superavitasesores.com.ec';
 
 			$título = 'Respuesta a su mensaje';
 
@@ -93,9 +93,8 @@ class MensajesController{
 								MLSolutions<br> 
 								Flavio Alfaro - Manabí</br> 
 								WhatsApp: +57 301 391 74 61</br> 
-								mlsolution.com</p>
 
-								<h3><a href="https://www.mlsolutions.com" target="blank">www.mlsolutions.com</a></h3>
+								<h3><a href="https://www.mlsolutions.com/" target="blank">www.mlsolutions.com</a></h3>
 
 								<a href="http://www.facebook.com" target="blank"><img src="https://s23.postimg.org/cb2i89a23/facebook.jpg"></a> 
 								<a href="http://www.youtube.com" target="blank"><img src="https://s23.postimg.org/mcbxvbciz/youtube.jpg"></a> 
@@ -163,24 +162,23 @@ class MensajesController{
 								</head>
 
 								<body>
-									<h1>Hola '.$item["nombre"].'</h1>
-									<p>'.$mensaje.'</p>
-									<hr>
-									<p><b>Juan Fernando Urrego A.</b><br>
-									Instructor Tutoriales a tu Alcance<br> 
-									Medellín - Antioquia</br> 
-									WhatsApp: +57 301 391 74 61</br> 
-									cursos@tutorialesatualcance.com</p>
+								<h1>Hola '.$nombre.'</h1>
+								<p>'.$mensaje.'</p>
+								<hr>
+								<p><b>Mario Alberto López</b><br>
+								MLSolutions<br> 
+								Flavio Alfaro - Manabí</br> 
+								WhatsApp: +57 301 391 74 61</br> 
 
-									<h3><a href="http://www.tutorialesatualcance.com" target="blank">www.tutorialesatualcance.com</a></h3>
+								<h3><a href="https://www.mlsolutions.com/" target="blank">www.mlsolutions.com</a></h3>
 
-									<a href="http://www.facebook.com" target="blank"><img src="https://s23.postimg.org/cb2i89a23/facebook.jpg"></a> 
-									<a href="http://www.youtube.com" target="blank"><img src="https://s23.postimg.org/mcbxvbciz/youtube.jpg"></a> 
-									<a href="http://www.twitter.com" target="blank"><img src="https://s23.postimg.org/tcvcacox7/twitter.jpg"></a> 
-									<br>
+								<a href="http://www.facebook.com" target="blank"><img src="https://s23.postimg.org/cb2i89a23/facebook.jpg"></a> 
+								<a href="http://www.youtube.com" target="blank"><img src="https://s23.postimg.org/mcbxvbciz/youtube.jpg"></a> 
+								<a href="http://www.twitter.com" target="blank"><img src="https://s23.postimg.org/tcvcacox7/twitter.jpg"></a> 
+								<br>
 
-									<img src="https://s23.postimg.org/dsnyjtesr/unnamed.jpg">
-								</body>
+								<img src="https://s23.postimg.org/dsnyjtesr/unnamed.jpg">
+							</body>
 
 						   </html>';
 
@@ -216,6 +214,40 @@ class MensajesController{
 			}
 
 		}
+
+	}
+
+	#MENSAJES SIN REVISAR
+	#------------------------------------------------------------
+	public function mensajesSinRevisarController(){
+
+		$respuesta = MensajesModel::mensajesSinRevisarModel("mensajes");
+
+		$sumaRevision = 0;
+
+		foreach ($respuesta as $row => $item) {
+			
+			if ($item["revision"] == 0 ) {
+				
+				++$sumaRevision;
+
+				echo '<span>'.$sumaRevision.'</span>';
+				
+			}
+
+		}
+	}
+
+
+	#MENSAJES REVISADOS
+	#------------------------------------------------------------
+	public function mensajesRevisadosController($datos){
+
+		$datosController = $datos;
+
+		$respuesta = MensajesModel::mensajesRevisadosModel($datosController, "mensajes");
+
+		echo $respuesta;
 
 	}
 
