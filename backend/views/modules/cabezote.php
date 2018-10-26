@@ -15,8 +15,8 @@ if($_SESSION["rol"] == 0){
 			<a href="mensajes" style="color: #fff">
 			  <i class="fa fa-envelope"></i>'; 
 			  
-				  $revisarMensajes = new MensajesController();
-				  $revisarMensajes -> mensajesSinRevisarController();
+				$revisarMensajes = new MensajesController();
+				$revisarMensajes -> mensajesSinRevisarController();
 			  
 	echo '</a>
 		</li>
@@ -26,7 +26,7 @@ if($_SESSION["rol"] == 0){
 			  <i class="fa fa-bell"></i>'; 
 		  
 
-				  $revisarSuscriptores = new SuscriptoresController();
+				$revisarSuscriptores = new SuscriptoresController();
 				$revisarSuscriptores -> suscriptoresSinRevisarController();	
 			  
 	echo '</a>

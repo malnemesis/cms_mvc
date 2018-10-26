@@ -127,7 +127,7 @@ class GestorPerfiles{
 							
 								<form style="padding:0px 10px" method="post" enctype="multipart/form-data">
 
-								      <input name="idPerfil" type="hidden" value="'.$item["id"].'">
+								      <input name="idPerfil" type="hidden" value="'.$item["id"].'">                                                                                                                                                                                       
 								    
 								     <div class="form-group">
 								       

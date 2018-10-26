@@ -27,6 +27,7 @@
 	<script src="views/js/responsive.bootstrap.min.js"></script>
 	<script src="views/js/jquery-ui.min.js"></script>
 	<script src="views/js/sweetalert.min.js"></script>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 
 </head>
 

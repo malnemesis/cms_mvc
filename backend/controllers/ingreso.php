@@ -20,6 +20,23 @@ class Ingreso{
 				$usuarioActual = $_POST["usuarioIngreso"];
 				$maximoIntentos = 2;
 
+				if (isset($_POST["g-recaptcha-response"])) {
+					$secret = "6Ld6EncUAAAAAKcN6FZteaHzITD4q49MEG7txFE5";
+					$response = $_POST["g-recaptcha-response"];
+					$remoteip = $_SERVER["REMOTE_ADDR"];
+
+					$result = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteip");
+
+					$array = json_decode($result, TRUE);
+
+					if ($array["success"]) {
+						
+						$intentos = 0;
+
+					}
+
+				}
+
 				if($intentos < $maximoIntentos){
 
 					if($respuesta["usuario"] == $_POST["usuarioIngreso"] && $respuesta["password"] == $encriptar){
@@ -59,13 +76,15 @@ class Ingreso{
 				}
 
 				else{
-						$intentos = 0;
 
 						$datosController = array("usuarioActual"=>$usuarioActual, "actualizarIntentos"=>$intentos);
 
 						$respuestaActualizarIntentos = IngresoModels::intentosModel($datosController, "usuarios");
 
-						echo '<div class="alert alert-danger">Ha fallado 3 veces, demuestre que no es un robot</div>';
+						echo 	'<div class="alert alert-danger">Ha fallado 3 veces, demuestre que no es un robot</div>
+								<div class="g-recaptcha" data-sitekey="6Ld6EncUAAAAAJwu4H2zge1BEXqpu8S0Xlx-MGJk"></div>';
+
+						
 
 				}
 

@@ -35,11 +35,11 @@ form#formIngreso {
     position: absolute;
     border-radius: 5px;
     box-shadow: 0px 0px 10px #001;
-    width: 300px;
+    width: 340px;
     height: auto;
     left: 50%;
     top: 50%;
-    margin-left: -150px;
+    margin-left: -170px;
     margin-top: -115px;
     background: #eee;
     padding: 0px 20px 10px 20px;

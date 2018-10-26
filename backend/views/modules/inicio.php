@@ -70,8 +70,11 @@ INICIO
 			</a>
 
 		</li>
+		
 
-		<li class="botonesInicio">
+		<?php
+			if ($_SESSION["rol"] == 0) {
+				echo '<li class="botonesInicio">
 		
 			<a href="suscriptores">
 			<div style="background:#ED3E3E">
@@ -80,7 +83,10 @@ INICIO
 			</div>
 			</a>
 
-		</li>
+		</li>';
+
+			}
+		?>
 
 	</ul>
 
